@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather</title>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="search_box"> 
+            <input type="text" placeholder="Enter a city, state, or village name" id="locationInput" autocomplete="off"/>
+            <button id="search"><ion-icon class="icon" name="search"></ion-icon></button>
+        </div>
+        <div id="show">
+            <div class="weather-info">
+                <h2 id="cityName">Loding...</h2>
+                <p id="date">Loding...</p>
+                <p id="weatherDescription"><ion-icon name="cloudy"></ion-icon>Loding...</p>
+                <div class="weather-details">
+                    <div class="info-box wind">
+                        <ion-icon name="speedometer"></ion-icon>
+                        <p id="windSpeed">wiat</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="info-box humidity">
+                        <ion-icon name="water"></ion-icon>
+                        <p id="humidity">wait</p>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="info-box visibility">
+                        <ion-icon name="eye"></ion-icon>
+                        <p id="visibility">wait</p>
+                        <p>Visibility</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>function searchWeather() {
+        const cityName = document.getElementById('cityInput').value;
+        const temperature = Math.floor(Math.random() * 30) + 10; // Random temperature for demonstration
+    
+        // Update weather information
+        document.getElementById('cityName').textContent = cityName;
+        document.getElementById('temperature').textContent = `${temperature}°C`;
+    
+        // Trigger animation reset by reapplying classes
+        const weatherResult = document.getElementById('weatherResult');
+        
+        // Remove animation classes
+        weatherResult.classList.remove('animate__fadeInUp');
+        
+        // Trigger reflow to restart animation
+        void weatherResult.offsetWidth;
+        
+        // Add animation class again
+        weatherResult.classList.add('animate__fadeInUp');
+    }
+    </script>
+</body>
+</html>
